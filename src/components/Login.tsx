@@ -2,15 +2,12 @@
 import React, { useState } from 'react';
 import { loginUser } from '../api/axios';
 import { data, redirect } from "react-router";
-//import DashBoard from './components/DashBoard'
-//import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<string>('');
-//  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,8 +15,7 @@ const Login: React.FC = () => {
       const response = await loginUser(email, password);
       setSuccess('Login successful!');
       setError('');
-     // redirect('/DashBoard');
-      //history.push('/DashBoard');
+
     } catch (err) {
       setError('Login failed, please check your credentials.');
       setSuccess('');
